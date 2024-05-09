@@ -470,8 +470,7 @@ legend {
     background-color: rgba(0,0,0,.05)
 }
 
-.cal-cell {
-}
+
 
 .cal-clickable-cell:hover {
     cursor: pointer;
@@ -2127,7 +2126,7 @@ h1, .h1-spacer {
 
 .chart-legend-value {
     display: inline-block;
-    float: left;
+    /* float: left; */
     width: 3em;
     text-align: right;
     margin-right: 8px;
@@ -2425,8 +2424,6 @@ h1, .h1-spacer {
     padding-bottom: 4px
 }
 
-.cols2 {
-}
 
 @media(min-width: 764px) {
     .colcount2 {
@@ -2621,9 +2618,87 @@ iframe {
 }
 #footer{
     background-color: black;
+  
 }
 a:hover {
     color: #10b1d0;
+}
+/* Contact CSS */
+#contact {
+    padding: 0 10%;
+    margin-bottom: 50px;
+    height: 90vh;
+    margin-bottom:100px;
+}
+
+#contact form {
+    color: #fff;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: black;
+  
+}
+
+.left-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.left-right .left,
+.left-right .right {
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+}
+
+#contact form label {
+    font-size: 14px;
+    padding: 10px 0;
+    font-weight: 600;
+}
+
+#contact form input {
+    padding: 8px;
+    outline: 0;
+    border: 1px solid #999;
+    width: 400px;
+}
+
+textarea {
+    height: 150px;
+    resize: none;
+    outline: 0;
+    width: 100%;
+    padding: 10px;
+    width: 400px;
+}
+
+#contact form input:focus,
+textarea:focus {
+    border: 1px solid #ffffff;
+}
+
+iframe {
+    height: 150px;
+    width: 100%;
+}
+
+#contact button {
+    width: fit-content;
+    padding: 8px 40px;
+    background-color: #111;
+    border: 1px solid #111;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#contact button:hover {
+    letter-spacing: 1px;
 }
 
 
