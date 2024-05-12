@@ -100,7 +100,7 @@
             <div class="container-fluid">
               <ul id="toolbar1_l" class="nav">
                 <li>
-                  <a id="logo" href="index.html" aria-label="logo">
+                  <a id="logo" href="index.php" aria-label="logo">
                     <span id="logo-lt">2SBM</span>
                     <span id="logo-rt"></span>
                     <br />
@@ -120,19 +120,19 @@
                   <li>
                     <ul id="mainmenu" class="nav">
                       <li class="active">
-                        <a href="index.html">ACCUEIL</a>
+                        <a href="index.php">ACCUEIL</a>
                       </li>
                       <li>
-                        <a href="services.html">SERVICES</a>
+                        <a href="services.php">SERVICES</a>
                       </li>
                       <li>
-                        <a href="secteurs-dintervention.html">SECTEURS D'INTERVENTION</a>
+                        <a href="secteurs-dintervention.php">SECTEURS D'INTERVENTION</a>
                       </li>
                       <li>
-                        <a href="realisations.html">REALISATIONS</a>
+                        <a href="realisations.php">REALISATIONS</a>
                       </li>
                       <li>
-                        <a href="contact.html">CONTACT</a>
+                        <a href="contact.php">CONTACT</a>
                       </li>
                       <li>
                         <a href="#" id="loginLink" data-toggle="modal" data-target="#loginModal">CONNEXION</a>

@@ -17,11 +17,12 @@
     </div>
     <div class="div2">
       <nav>
-          <a href="Acceuil.html">COMMANDES<a>
-          <a href="Service.html">MATERIAUX<a>
-          <a href="Connexion.html">FOURNISSEURS<a>
-          <a href="Recherche.html">HISTORIQUE<a>
-          <a href="index.html" id="logoutButton">SE DECONNECTER<a>
+          <a href="Acceuil.php">COMMANDES<a>
+        <a href="ajout_admin.php">AJouter un administrateur</a>
+          <a href="Service.php">MATERIAUX<a>
+          <a href="Fornisseur.php">FOURNISSEURS<a>
+          <a href="Recherche.php">HISTORIQUE<a>
+          <a href="index.php id="logoutButton">SE DECONNECTER<a>
            
 
       
