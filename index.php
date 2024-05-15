@@ -401,7 +401,7 @@
           password === "Brahim1973"
         ) {
           // Rediriger vers la page de profil si les identifiants sont corrects
-          window.location.href = "profil.html";
+          window.location.href = "Profil.php";
         } else {
           // Afficher un message d'erreur si les identifiants sont incorrects
           alert("Email ou mot de passe incorrect.");
