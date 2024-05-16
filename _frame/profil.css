@@ -36,7 +36,7 @@ header {
 .div2 a:hover {
   font-size: large;
   font-style: italic;
-  color: red;
+  color: rgb(83, 51, 228);
 }
 .section-below-header {
   position: relative;

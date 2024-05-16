@@ -16,19 +16,23 @@ $materiaux = $query->fetchAll(PDO::FETCH_ASSOC);
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
+            color: #333;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
         .container {
-            width: 100%;
-            max-width: 800px;
-            margin: 50px auto;
+            width: 80%;
             background-color: #fff;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
         }
 
         table {
@@ -37,7 +41,7 @@ $materiaux = $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
         th, td {
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ccc;
             text-align: left;
         }
@@ -48,15 +52,13 @@ $materiaux = $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
         .btn-back {
-            display: block;
-            width: 100%;
-            padding: 12px;
+            display: inline-block;
+            padding: 12px 24px;
             background-color: #007bff;
             color: #fff;
-            text-align: center;
             text-decoration: none;
             border-radius: 5px;
-            margin-top: 20px;
+            transition: background-color 0.3s ease;
         }
 
         .btn-back:hover {
@@ -66,7 +68,7 @@ $materiaux = $query->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <div class="container">
-        <h2>Liste des matériaux</h2>
+        <h2 style="text-align: center;">Liste des matériaux</h2>
         <table>
             <thead>
                 <tr>
@@ -81,7 +83,7 @@ $materiaux = $query->fetchAll(PDO::FETCH_ASSOC);
             <tbody>
                 <?php foreach ($materiaux as $materiel) : ?>
                     <tr>
-                    <td><?php echo isset($materiel['id_materiel']) ? htmlspecialchars($materiel['id_materiel']) : 'N/A'; ?></td>
+                        <td><?php echo isset($materiel['id_materiel']) ? htmlspecialchars($materiel['id_materiel']) : 'N/A'; ?></td>
                         <td><?php echo htmlspecialchars($materiel['nom']); ?></td>
                         <td><?php echo htmlspecialchars($materiel['prix']); ?></td>
                         <td><?php echo htmlspecialchars($materiel['quantite']); ?></td>
@@ -91,7 +93,9 @@ $materiaux = $query->fetchAll(PDO::FETCH_ASSOC);
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <a href="materiel.php" class="btn-back">Retour</a>
+        <div style="text-align: center;">
+            <a href="materiel.php" class="btn-back">Retour</a>
+        </div>
     </div>
 </body>
 </html>
