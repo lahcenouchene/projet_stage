@@ -16,17 +16,15 @@
       <h4>Génie Climatique pour les particuliers et les industries</h4>
     </div>
     <div class="div2">
-      <nav>
-          <a href="Acceuil.php">COMMANDES<a>
-        <a href="ajout_admin.php">AJouter un administrateur</a>
-          <a href="Service.php">MATERIAUX<a>
-          <a href="Fornisseur.php">FOURNISSEURS<a>
-          <a href="Recherche.php">HISTORIQUE<a>
-          <a href="index.php id="logoutButton">SE DECONNECTER<a>
-           
+    <nav>
+    <a href="Acceuil.php">commande</a>
+    <a href="ajout_admin.php">Ajout admin</a>
+    <a href="Service.php">Matériaux</a>
+    <a href="Fornisseur.php">Fournisseur</a>
+    <a href="Recherche.php">Historique</a>
+    <a href="index.php" id="logoutButton">Se Deconnecter</a>
+</nav>
 
-      
-        </nav>
     </div>
   </header>
   <section class="section-below-header">

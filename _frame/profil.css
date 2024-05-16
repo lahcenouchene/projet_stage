@@ -1,106 +1,98 @@
 header {
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    width: 100%;
-    height: 15vh;
-    margin-bottom: 10px;
-    border-bottom: 1px solid black;
-    
-  }
-  .div2 {
-    margin-top: 60px;
-    margin-left: 100px;
-    margin-bottom: 0%;
-  }
-  
-  .div1 {
-    margin-top: 0px;
-    margin-left: 25px;
-    
-  }
-  .div1 h4 {
-    margin-top: 0;
-    font-size: small;
-  }
-  
-  .div1 h2 {
-    margin-bottom: 0;
-  }
-  
-  .div2 a {
-    padding: 5px;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    font-size: large;
-  }
-  .div2 a:hover {
-    font-size: large;
-    font-style: italic;
-    color: red;
-  }
-  .section-below-header {
-    position: relative;
-    height: 800px;
-  
-      
-  }
-  #dynamic-image {
-    width: 100%; /* La largeur de l'image occupe toute la largeur de la section */
-    height: 65%; /* La hauteur de l'image est de 70% de la hauteur de la section */
-    object-fit: cover; /* Assure que l'image remplit la taille spécifiée tout en conservant son ratio hauteur/largeur */
-    object-position: center; /* Centre l'image horizontalement */
-    margin-bottom: 20px;
-  }
-  
-  .section-title {
-    text-align: center;
-    margin-top: 20px; 
-    font-size: 40px;
-    margin-bottom: 5px;
-    margin-left: 80px;
-    
-  }
-  .section-paragraph {
-    text-align: center;
-    margin-left: 140px;
-    margin-top: 20px;
-    font-size: 20px;
-    margin-top: 0%;
-  }
-  .logo-left {
-    margin-left: 20px;
-    margin-top: -30px;
-    width: 10%;
-    height: 20%;
-    border-radius: 30%;
-    
-  }
-  .div3 {
-    margin-top: 0px;
-    margin-left: 25px;
-    display : flex;
-    flex-direction: column;
-  }
-  .section-about-us {
-      font-size: 21px; /* Ajustez cette valeur en fonction de vos besoins */
-    }
-    footer {
-      background-color: white;
-      padding: 20px;
-      color: white;
-      border-top: 1px solid black;
-    }
-    
-    .social-icons {
-      display: flex;
-      justify-content: flex-end; /* Positionne les icônes à droite */
-      gap: 20px;
-    }
-    
-    .social-icons i {
-      font-size: 24px; /* Augmente la taille des icônes */
-    }
-  
-  
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+.div2 {
+  margin-top: 60px;
+  margin-left: 100px;
+  margin-bottom: 0%;
+}
+
+.div1 {
+  margin-top: 0px;
+  margin-left: 25px;
+}
+.div1 h4 {
+  margin-top: 0;
+  font-size: small;
+}
+
+.div1 h2 {
+  margin-bottom: 0;
+}
+
+.div2 a {
+  padding: 5px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: large;
+}
+.div2 a:hover {
+  font-size: large;
+  font-style: italic;
+  color: red;
+}
+.section-below-header {
+  position: relative;
+  height: 800px;
+}
+#dynamic-image {
+  width: 100%; /* La largeur de l'image occupe toute la largeur de la section */
+  height: 65%; /* La hauteur de l'image est de 70% de la hauteur de la section */
+  object-fit: cover; /* Assure que l'image remplit la taille spécifiée tout en conservant son ratio hauteur/largeur */
+  object-position: center; /* Centre l'image horizontalement */
+  margin-bottom: 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 40px;
+  margin-bottom: 5px;
+  margin-left: 80px;
+}
+.section-paragraph {
+  text-align: center;
+  margin-left: 140px;
+  margin-top: 20px;
+  font-size: 20px;
+  margin-top: 0%;
+}
+.logo-left {
+  margin-left: 20px;
+  margin-top: -30px;
+  width: 10%;
+  height: 20%;
+  border-radius: 30%;
+}
+.div3 {
+  margin-top: 0px;
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+}
+.section-about-us {
+  font-size: 21px; /* Ajustez cette valeur en fonction de vos besoins */
+}
+footer {
+  background-color: white;
+  padding: 20px;
+  color: white;
+  border-top: 1px solid black;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: flex-end; /* Positionne les icônes à droite */
+  gap: 20px;
+}
+
+.social-icons i {
+  font-size: 24px; /* Augmente la taille des icônes */
+}

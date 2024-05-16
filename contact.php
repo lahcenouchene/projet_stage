@@ -1,3 +1,42 @@
+<?php
+// Inclusion du fichier de connexion
+require('connexion.php');
+
+if (isset($_POST['envoyer'])) {
+    $nom_complet = $_POST['nom_complet'];
+    $objet = $_POST['objet'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $tel = $_POST['tel'];
+    $date = $_POST['date'];
+    $autre_details = $_POST['autre_details'];
+    $adresse = $_POST['adresse'];
+
+    // Utilisation de requêtes préparées pour éviter les injections SQL
+    $stmt = $stage->prepare("INSERT INTO commande(nom_complet, objet, email, message, tel, date, autre_details,adresse) VALUES (?, ?, ?, ?, ?, ?, ?,?)");
+    $stmt->execute([$nom_complet, $objet, $email, $message, $tel, $date, $autre_details, $adresse]);
+
+    // Facultatif : Affichage d'un message de succès
+    //echo "Données insérées avec succès!";
+    echo "<script>alert('Commande envoyée avec succès!');</script>";
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!doctype html>
 <html lang="fr">
 
@@ -230,30 +269,30 @@
                             </div>
                             <section id="contact">
                                 <h1 class="title">Contact</h1>
-                                <form action="">
+                                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                                     <div class="left-right">
                                         <div class="left">
                                             <label>Nom Complet</label>
-                                            <input type="text">
+                                            <input type="text" id="nom_complet" name="nom_complet">
                                             <label>Objet</label>
-                                            <input type="text">
+                                            <input type="text" id="objet" name="objet">
                                             <label>Email</label>
-                                            <input type="text">
+                                            <input type="text" id="email" name="email">
                                             <label>Message</label>
-                                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                                            <textarea name="message" id="message" cols="30" rows="10"></textarea>
                                         </div>
                                         <div class="right">
-                                            <label>Numéro</label>
-                                            <input type="text">
+                                            <label>Teléphone</label>
+                                            <input type="text" id="tel" name="tel">
                                             <label>Date</label>
-                                            <input type="text">
+                                            <input type="date" id="date" name="date">
                                             <label>Autres Details</label>
-                                            <input type="text">
+                                            <input type="text" id="autre_details" name="autre_details">
                                             <label>Adresse</label>
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.708071586327!2d4.965045075470215!3d45.73694901520026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4c6b8fdc89b6d%3A0x1b3f2fe74da15548!2s12%20Av.%20du%20Progr%C3%A8s%2C%2069680%20Chassieu!5e0!3m2!1sfr!2sfr!4v1714666209268!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                            <input type="text" id="adresse" name="adresse">
                                         </div>
                                     </div>
-                                    <button>Envoyer</button>
+                                    <button type="submit" name="envoyer">Envoyer</button>
                                 </form>
                             </section>
                         </div>
