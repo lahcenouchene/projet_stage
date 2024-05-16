@@ -1,48 +1,9 @@
-<?php
-// Inclusion du fichier de connexion
-require('connexion.php');
-
-if (isset($_POST['envoyer'])) {
-    $nom_complet = $_POST['nom_complet'];
-    $objet = $_POST['objet'];
-    $email = $_POST['email'];
-    $message = $_POST['message'];
-    $tel = $_POST['tel'];
-    $date = $_POST['date'];
-    $autre_details = $_POST['autre_details'];
-    $adresse = $_POST['adresse'];
-
-    // Utilisation de requêtes préparées pour éviter les injections SQL
-    $stmt = $stage->prepare("INSERT INTO commande(nom_complet, objet, email, message, tel, date, autre_details,adresse) VALUES (?, ?, ?, ?, ?, ?, ?,?)");
-    $stmt->execute([$nom_complet, $objet, $email, $message, $tel, $date, $autre_details, $adresse]);
-
-    // Facultatif : Affichage d'un message de succès
-    //echo "Données insérées avec succès!";
-    echo "<script>alert('Commande envoyée avec succès!');</script>";
-}
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Récapitulatif des commandes</title>
     <meta property="og:url" content="http://www.2sbm.fr/contact.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="2SBM">
@@ -51,116 +12,49 @@ if (isset($_POST['envoyer'])) {
     <meta name="twitter:title" content="2SBM">
     <meta name="generator" content="Lauyan TOWeb 11.0.6.956">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
-
+    <!-- Styles -->
     <link href="_script/bootstrap/css/bootstrap.flat.min.css" rel="stylesheet">
-    <link href="_frame/style.css" rel="stylesheet">
+    <link href="_frame/stylee.css" rel="stylesheet">
     <link rel="stylesheet" href="_scripts/leaflet/leaflet.css" />
+    <link href="_frame/print.css" rel="stylesheet" type="text/css" media="print">
     <style>
-        .raty-comp {
-            padding: 8px 0;
-            font-size: 10px;
-            color: #FD9317
+        /* Votre CSS personnalisé ici */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
-        .tw-blogbar {
-            display: flex;
-            align-items: center
+        .container {
+            width: 95%;
+            margin: 20px auto;
         }
 
-        @media (max-width: 767px) {
-            .tw-blogbar {
-                flex-direction: column;
-            }
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
 
-        .alert a {
-            color: #003399
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
         }
 
-        .ta-left {
-            text-align: left
+        th {
+            background-color: black;
+            color: white;
         }
 
-        .ta-center {
-            text-align: center
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
         }
 
-        .ta-justify {
-            text-align: justify
-        }
-
-        .ta-right {
-            text-align: right
-        }
-
-        .float-l {
-            float: left
-        }
-
-        .float-r {
-            float: right
-        }
-
-        .flexobj {
-            flex-grow: 0;
-            flex-shrink: 0;
-            margin-right: 1em;
-            margin-left: 1em
-        }
-
-        .flexrow {
-            display: flex !important;
-            align-items: center
-        }
-
-        .flexrow-align-start {
-            align-items: start
-        }
-
-        @media (max-width: 767px) {
-            .flexrow {
-                flex-direction: column
-            }
-
-            .flexrow-align-start {
-                align-items: center
-            }
-        }
-
-        .tw-para a.tw-lflnk:not(.btn) {
-            color: #000
-        }
-
-        .tw-para a.tw-lflnk:not(.btn):hover {
-            text-decoration: none
-        }
-
-        .tw-bkgimg-fE9JnvHd {
-            z-index: 0;
-            position: relative;
-            overflow-y: hidden;
-            overflow-x: hidden;
-            background-color: #000;
-        }
-
-        .tw-bkgimg-fE9JnvHd::before {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: url("_media/img/large/pod-laura-the-unscheduled-conversations-and-chance-encounters-t-075efc97-10ca-4092-8fa6-d4bbee70b5c3.png");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.6;
+        tr:hover {
+            background-color: #ddd;
         }
     </style>
-    <link href="_frame/print.css" rel="stylesheet" type="text/css" media="print">
 </head>
 
 <body>
@@ -215,91 +109,44 @@ if (isset($_POST['envoyer'])) {
                     </div>
                 </div>
             </header>
-            <div id="content" class="container-fluid">
-                <div class="row-fluid">
-                    <div class="span12"></div>
-                </div>
-                <div id="topic" class="row-fluid">
-                    <div id="topic-inner">
-                        <div id="top-content" class="span12">
-                            <div class="twpara-row row-fluid">
-                                <div id="fE9JnvHd" class="span12 tw-para tw-parallax tw-bkgimg-fE9JnvHd tw-wtxt">
-                                    <h2 style="text-align:center">
-                                        <div>
-                                            <br>
-                                        </div>
-                                        <div>
-                                            <br>
-                                        </div>
-                                        <div>
-                                            <br>
-                                        </div>
-                                        <div>
-                                            <br>
-                                        </div>
-                                        <div>
-                                            <span style="font-size:54px;">Contactez nous</span>
-                                        </div>
-                                        <div>
-                                            <br>
-                                        </div>
-                                        <div>
-                                            <br>
-                                        </div>
-                                        <div>
-                                            <br>
-                                        </div>
-                                    </h2>
-                                </div>
-                            </div>
-                            <div class="twpara-row row-fluid">
-                                <div id="dpzMMeJ4" class="span12 tw-para flexrow flexrow-align-start ">
-                                    <div class="pobj flexobj">
-                                        <img src="_media/img/small/3.png" srcset="_media/img/thumb/3.png 160w,_media/img/small/3.png 480w,_media/img/medium/3.png 768w,_media/img/large/3.png 1024w,_media/img/xlarge/3.png 1280w" style="max-width:100%;width:320px;" alt="" loading="lazy">
-                                    </div>
-                                    <div>
-                                        <h2 style="text-align:center">Contactez-nous</h2>
-                                        <div class="ptext">
-                                            <div style="text-align: center;">Pour toute demande de devis, de rendez-vous
-                                                ou de renseignements
-                                                supplémentaires, n'hésitez pas à nous contacter.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <section id="contact" style="margin-bottom: 100px;">
-                                <h1 class="title">Contact</h1>
-                                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                                    <div class="left-right">
-                                        <div class="left">
-                                            <label>Nom Complet</label>
-                                            <input type="text" id="nom_complet" name="nom_complet">
-                                            <label>Objet</label>
-                                            <input type="text" id="objet" name="objet">
-                                            <label>Email</label>
-                                            <input type="text" id="email" name="email">
-                                            <label>Message</label>
-                                            <textarea name="message" id="message" cols="30" rows="10"></textarea>
-                                        </div>
-                                        <div class="right">
-                                            <label>Teléphone</label>
-                                            <input type="text" id="tel" name="tel">
-                                            <label>Date</label>
-                                            <input type="date" id="date" name="date">
-                                            <label>Autres Details</label>
-                                            <input type="text" id="autre_details" name="autre_details">
-                                            <label>Adresse</label>
-                                            <input type="text" id="adresse" name="adresse">
-                                        </div>
-                                    </div>
-                                    <button type="submit" name="envoyer">Envoyer</button>
-                                </form>
-                            </section>
-                        </div>
-                    </div>
-                </div>
+            <div class="container">
+                <h1>Récapitulatif des commandes</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id_commande</th>
+                            <th>Nom Complet</th>
+                            <th>Objet</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                            <th>Téléphone</th>
+                            <th>Date</th>
+                            <th>Autres Détails</th>
+                            <th>Adresse</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        require('connexion.php');
+                        $stmt = $stage->query("SELECT * FROM commande");
+                        while ($row = $stmt->fetch()) {
+                            echo "<tr>";
+                            echo "<td>" . $row['id_commande'] . "</td>";
+                            echo "<td>" . $row['nom_complet'] . "</td>";
+                            echo "<td>" . $row['objet'] . "</td>";
+                            echo "<td>" . $row['email'] . "</td>";
+                            echo "<td>" . $row['message'] . "</td>";
+                            echo "<td>" . $row['tel'] . "</td>";
+                            echo "<td>" . $row['date'] . "</td>";
+                            echo "<td>" . $row['autre_details'] . "</td>";
+                            echo "<td>" . $row['adresse'] . "</td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
-            <footer style="  margin-top: 230px;">
+            <footer style="margin-top: 100px; ">
                 <section class="footer bg-dark text-white " style="width: 100%;">
                     <div id="footer" style="margin-top: -50px">
                         <div class="box-container" style="padding-top: 20px;">
@@ -317,8 +164,9 @@ if (isset($_POST['envoyer'])) {
                                             <h3>Nos HORAIRES</h3>
                                             <a href="#"><i class="fas fa-arrow-right"></i> Du lundi au vendredi de
                                                 8H00 à 17H30.
+                                            </a>
+
                                         </div>
-                                        </a>
 
                                     </div>
                                     <div class="col-md-3">
@@ -379,36 +227,17 @@ if (isset($_POST['envoyer'])) {
                         </div>
                     </div>
 
+                </div>
+                </section>
+            </footer>
         </div>
-        </section>
-        </footer>
     </div>
-    </div>
+    <!-- Scripts -->
     <script src="_scripts/jquery/jquery.min.js"></script>
     <script src="_scripts/bootstrap/js/bootstrap.min.js"></script>
     <script src="_scripts/leaflet/leaflet.js"></script>
     <script>
-        function decMail2(e) {
-            var s = "" + e.href,
-                n = s.lastIndexOf("/"),
-                w;
-            if (s.substr(0, 7) == "mailto:")
-                return (true);
-            if (n > 0)
-                s = s.substr(n + 1);
-            s = s.replace("?", ":").replace("#", "@").replace(/[a-z]/gi, function(t) {
-                return String.fromCharCode(t.charCodeAt(0) + (t.toLowerCase() < "n" ? 13 : -13));
-            });
-            e.href = s;
-            return (true);
-        }
-
-        function onChangeSiteLang(href) {
-            var i = location.href.indexOf("?");
-            if (i > 0)
-                href += location.href.substr(i);
-            document.location.href = href;
-        }
+        // Vos scripts JavaScript ici
     </script>
     <script>
         $(document).ready(function() {

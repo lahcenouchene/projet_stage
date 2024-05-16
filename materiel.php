@@ -1,14 +1,25 @@
 <?php
 if (isset($_POST['valider'])) {
     $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $email = $_POST['email'];
-    $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT); // Hachage du mot de passe
-    $tel = $_POST['tel'];
+    $prix = $_POST['prix'];
+    $quantite = $_POST['quantite'];
+    $fournisseur = $_POST['fournisseur'];
     require('connexion.php');
-    $stage->exec("INSERT INTO administrateur(nom,prenom,email,mdp,tel)
-    VALUES('" . $nom . "','" . $prenom . "','" . $email . "','" . $mdp . "','" . $tel . "')");
-    echo "<script>alert('Administrateur ajouté avec succès!');</script>";
+
+    // Préparez et exécutez la requête pour insérer les données dans la base de données
+    $query = $stage->prepare("INSERT INTO materiel (nom, prix, quantite, fournisseur) VALUES (:nom, :prix, :quantite, :fournisseur)");
+    $query->bindParam(':nom', $nom);
+    $query->bindParam(':prix', $prix);
+    $query->bindParam(':quantite', $quantite);
+    $query->bindParam(':fournisseur', $fournisseur);
+
+    if ($query->execute()) {
+        // Si l'insertion a réussi, affichez un message de succès
+        echo "<script>alert('Matériel ajouté avec succès!');</script>";
+    } else {
+        // Si l'insertion a échoué, affichez un message d'erreur
+        echo "<script>alert('Erreur lors de l'ajout du matériel');</script>";
+    }
 }
 ?>
 
@@ -17,7 +28,7 @@ if (isset($_POST['valider'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un administrateur</title>
+    <title>Ajouter un matériel</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,39 +71,39 @@ if (isset($_POST['valider'])) {
             box-sizing: border-box;
         }
 
-        button,
-        .btn-back {
+        button {
             display: block;
             width: 100%;
             padding: 12px;
-            margin-top: 10px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        button {
             background-color: #007bff;
             color: #fff;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
 
         button:hover {
             background-color: #0056b3;
         }
 
-        .btn-back {
+        .btn-view {
+            display: block;
+            width: 95%;
+            padding: 12px;
             background-color: #28a745;
             color: #fff;
-            border: none;
-            width: 95%;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
         }
 
-        .btn-back:hover {
-            background-color: #5a6268;
+        .btn-view:hover {
+            background-color: #218838;
         }
 
         /* Media Queries pour la mise en page responsive */
@@ -112,31 +123,27 @@ if (isset($_POST['valider'])) {
 </head>
 <body>
     <div class="container">
-        <h2>Ajouter un administrateur</h2>
+        <h2>Ajouter un matériel</h2>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <div class="form-group">
                 <label for="nom">Nom:</label>
                 <input type="text" id="nom" name="nom" required>
             </div>
             <div class="form-group">
-                <label for="prenom">Prénom:</label>
-                <input type="text" id="prenom" name="prenom" required>
+                <label for="prix">Prix:</label>
+                <input type="text" id="prix" name="prix" required>
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <label for="quantite">Quantité:</label>
+                <input type="text" id="quantite" name="quantite" required>
             </div>
             <div class="form-group">
-                <label for="mdp">Mot de passe:</label>
-                <input type="password" id="mdp" name="mdp" required>
-            </div>
-            <div class="form-group">
-                <label for="tel">Téléphone:</label>
-                <input type="tel" id="tel" name="tel" required>
+                <label for="fournisseur">Fournisseur:</label>
+                <input type="text" id="fournisseur" name="fournisseur" required>
             </div>
             <button type="submit" name="valider">Ajouter</button>
         </form>
-        <a href="profil.php" class="btn-back">Retour</a>
+        <a href="liste_materiaux.php" class="btn-view">Voir la liste des matériaux</a>
     </div>
 </body>
 </html>

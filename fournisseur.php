@@ -3,11 +3,11 @@ if (isset($_POST['valider'])) {
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $email = $_POST['email'];
-    $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT); // Hachage du mot de passe
     $tel = $_POST['tel'];
+    $adresse = $_POST['adresse'];
     require('connexion.php');
-    $stage->exec("INSERT INTO administrateur(nom,prenom,email,mdp,tel)
-    VALUES('" . $nom . "','" . $prenom . "','" . $email . "','" . $mdp . "','" . $tel . "')");
+    $stage->exec("INSERT INTO fournisseur(nom,prenom,email,tel,adresse)
+    VALUES('" . $nom . "','" . $prenom . "','" . $email . "','" . $tel . "','" . $adresse . "')"); // Modification ici, retrait de $tel en trop
     echo "<script>alert('Administrateur ajouté avec succès!');</script>";
 }
 ?>
@@ -17,7 +17,7 @@ if (isset($_POST['valider'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un administrateur</title>
+    <title>Ajouter un fournisseur</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,39 +60,21 @@ if (isset($_POST['valider'])) {
             box-sizing: border-box;
         }
 
-        button,
-        .btn-back {
+        button {
             display: block;
             width: 100%;
             padding: 12px;
-            margin-top: 10px;
-            text-align: center;
-            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
             border-radius: 5px;
+            cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
         }
 
-        button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
         button:hover {
             background-color: #0056b3;
-        }
-
-        .btn-back {
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            width: 95%;
-        }
-
-        .btn-back:hover {
-            background-color: #5a6268;
         }
 
         /* Media Queries pour la mise en page responsive */
@@ -112,7 +94,7 @@ if (isset($_POST['valider'])) {
 </head>
 <body>
     <div class="container">
-        <h2>Ajouter un administrateur</h2>
+        <h2>Ajouter un fournisseur</h2>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <div class="form-group">
                 <label for="nom">Nom:</label>
@@ -127,16 +109,16 @@ if (isset($_POST['valider'])) {
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="mdp">Mot de passe:</label>
-                <input type="password" id="mdp" name="mdp" required>
-            </div>
-            <div class="form-group">
                 <label for="tel">Téléphone:</label>
                 <input type="tel" id="tel" name="tel" required>
             </div>
+            <div class="form-group">
+                <label for="adresse">Adresse:</label>
+                <input type="text" id="adresse" name="adresse" required>
+            </div>
             <button type="submit" name="valider">Ajouter</button>
         </form>
-        <a href="profil.php" class="btn-back">Retour</a>
+        <a href="profil.php" style="display: block; width: 96%; padding: 12px; background-color: #28a745; color: #fff; text-align: center; text-decoration: none; border-radius: 5px; font-size: 16px; transition: background-color 0.3s; margin-top: 10px;">Retour</a>
     </div>
 </body>
 </html>

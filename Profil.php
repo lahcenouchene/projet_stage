@@ -17,10 +17,10 @@
     </div>
     <div class="div2">
     <nav>
-    <a href="Acceuil.php">commande</a>
+    <a href="commande.php">commande</a>
     <a href="ajout_admin.php">Ajout admin</a>
-    <a href="Service.php">Matériaux</a>
-    <a href="Fornisseur.php">Fournisseur</a>
+    <a href="materiel.php">Matériaux</a>
+    <a href="fournisseur.php">Fournisseur</a>
     <a href="Recherche.php">Historique</a>
     <a href="index.php" id="logoutButton">Se Deconnecter</a>
 </nav>
