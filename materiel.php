@@ -18,7 +18,7 @@ if (isset($_POST['valider'])) {
         echo "<script>alert('Matériel ajouté avec succès!');</script>";
     } else {
         // Si l'insertion a échoué, affichez un message d'erreur
-        echo "<script>alert('Erreur lors de l'ajout du matériel');</script>";
+        echo "<script>alert('Erreur lors de l\'ajout du matériel');</script>";
     }
 }
 ?>
@@ -29,18 +29,14 @@ if (isset($_POST['valider'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un matériel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        } */
         body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
-    }
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
 
         .container {
             width: 100%;
@@ -132,23 +128,27 @@ if (isset($_POST['valider'])) {
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <div class="form-group">
                 <label for="nom">Nom:</label>
-                <input type="text" id="nom" name="nom" required>
+                <input type="text" id="nom" name="nom" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="prix">Prix:</label>
-                <input type="text" id="prix" name="prix" required>
+                <input type="text" id="prix" name="prix" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="quantite">Quantité:</label>
-                <input type="text" id="quantite" name="quantite" required>
+                <input type="text" id="quantite" name="quantite" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="fournisseur">Fournisseur:</label>
-                <input type="text" id="fournisseur" name="fournisseur" required>
+                <input type="text" id="fournisseur" name="fournisseur" class="form-control" required>
             </div>
-            <button type="submit" name="valider">Ajouter</button>
+            <button type="submit" name="valider" class="btn btn-primary btn-block"><i class="fas fa-plus"></i> Ajouter</button>
         </form>
-        <a href="liste_materiaux.php" class="btn-view">Voir la liste des matériaux</a>
+        <a href="liste_materiaux.php" class="btn btn-success btn-block mt-3"><i class="fas fa-list"></i> Voir la liste des matériaux</a>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </body>
 </html>

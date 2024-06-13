@@ -8,7 +8,7 @@ if (isset($_POST['valider'])) {
     require('connexion.php');
     $stage->exec("INSERT INTO fournisseur(nom,prenom,email,tel,adresse)
     VALUES('" . $nom . "','" . $prenom . "','" . $email . "','" . $tel . "','" . $adresse . "')"); // Modification ici, retrait de $tel en trop
-    echo "<script>alert('Administrateur ajouté avec succès!');</script>";
+    echo "<script>alert('Fournisseur ajouté avec succès!');</script>";
 }
 ?>
 
@@ -18,76 +18,52 @@ if (isset($_POST['valider'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un fournisseur</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-      body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
-    }
-
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
         .container {
-            width: 100%;
             max-width: 500px;
-            margin: 100px auto;
             background-color: #fff;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
-
         h2 {
             text-align: center;
             margin-bottom: 30px;
+            color: #007bff;
         }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
+        .form-group label {
             font-weight: bold;
         }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        input[type="password"] {
-            width: 100%;
+        .form-control {
             padding: 10px;
-            border: 1px solid #ccc;
             border-radius: 5px;
-            box-sizing: border-box;
         }
-
-        button {
-            display: block;
-            width: 100%;
-            padding: 12px;
+        .btn-primary {
             background-color: #007bff;
-            color: #fff;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
             transition: background-color 0.3s;
         }
-
-        button:hover {
+        .btn-primary:hover {
             background-color: #0056b3;
         }
-
-        /* Media Queries pour la mise en page responsive */
-        @media only screen and (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
+        .btn-back {
+            background-color: #28a745;
+            color: #fff;
+            transition: background-color 0.3s;
         }
-
-        @media only screen and (max-width: 400px) {
-            .container {
-                margin-top: 50px;
-                border-radius: 0;
-            }
+        .btn-back:hover {
+            background-color: #218838;
         }
     </style>
 </head>
@@ -97,27 +73,31 @@ if (isset($_POST['valider'])) {
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <div class="form-group">
                 <label for="nom">Nom:</label>
-                <input type="text" id="nom" name="nom" required>
+                <input type="text" id="nom" name="nom" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="prenom">Prénom:</label>
-                <input type="text" id="prenom" name="prenom" required>
+                <input type="text" id="prenom" name="prenom" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="tel">Téléphone:</label>
-                <input type="tel" id="tel" name="tel" required>
+                <input type="tel" id="tel" name="tel" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="adresse">Adresse:</label>
-                <input type="text" id="adresse" name="adresse" required>
+                <input type="text" id="adresse" name="adresse" class="form-control" required>
             </div>
-            <button type="submit" name="valider">Ajouter</button>
+            <button type="submit" name="valider" class="btn btn-primary btn-block"><i class="fas fa-user-plus"></i> Ajouter</button>
         </form>
-        <a href="profil.php" style="display: block; width: 96%; padding: 12px; background-color: #28a745; color: #fff; text-align: center; text-decoration: none; border-radius: 5px; font-size: 16px; transition: background-color 0.3s; margin-top: 10px;">Retour</a>
+        <a href="profil.php" class="btn btn-back btn-block mt-3"><i class="fas fa-arrow-left"></i> Retour</a>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
     <link href="_script/bootstrap/css/bootstrap.flat.min.css" rel="stylesheet">
     <!-- <link rel="stylesheet" media="screen" href="_scripts/colorbox/colorbox.css"> -->
     <link rel="stylesheet" href="_frame/profil.css">
-    <link href="_frame/style.css" rel="stylesheet">
+    <!-- <link href="_frame/style.css" rel="stylesheet"> -->
     <title>Profil - 2SBM</title>
     <style>
        body {
@@ -14,6 +14,10 @@
       background-color: #f8f9fa;
       color: #333;
     }
+    .container {
+            width: 95%;
+            margin: 20px auto;
+        }
     footer {
             background-color: #343a40;
             color: #fff;
@@ -39,29 +43,35 @@
             display: flex;
             align-items: center
         }
+        #dynamic-image {
+            border-left: 10px solid #333;
+            border-right: 10px solid #333;
+            padding: 10px;
+            max-width: 97%;
+        }
     </style>
 </head>
 <body>
-  <header>
-    <div class="div1">
-      <h2>2SBM</h2>
-      <h4>Génie Climatique pour les particuliers et les industries</h4>
-    </div>
-    <div class="div2">
-    <nav>
-    <a href="commande.php">commande</a>
-    <a href="ajout_admin.php">Ajout admin</a>
-    <a href="materiel.php">Matériaux</a>
-    <a href="fournisseur.php">Fournisseur</a>
-    <a href="historique.php">Historique</a>
-    <a href="index.php" id="logoutButton">Se Deconnecter</a>
-</nav>
-
-    </div>
-  </header>
+    <header>
+                <div class="div1">
+                    <h2>2SBM</h2>
+                    <h4>Génie Climatique pour les particuliers et les industries</h4>
+                </div>
+                <div class="div2">
+                    <nav>
+                        <a href="commande.php">Commande</a>
+                        <a href="ajout_admin.php">Ajout admin</a>
+                        <a href="materiel.php">Matériaux</a>
+                        <a href="fournisseur.php">Fournisseur</a>
+                        <a href="historique.php">Historique</a>
+                        <a href="index.php" id="logoutButton">Se Deconnecter</a>                
+                    </nav>
+                </div>
+    </header>
+ 
   <section class="section-below-header">
       
-     <img src="_media/img/large/Design sans titre.png" alt="Image dynamique" id="dynamic-image"  style="width:100%;">
+     <img src="_media/img/large/Design sans titre.png" alt="Image dynamique" id="dynamic-image"  >
      <div class="div3">
       <div>
         <p class="section-title">Chaud ou froid, C'est notre spécialité </p>
@@ -109,9 +119,8 @@
                     </div>
                 </div>
             </footer>
-
-
-
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </body>
 </html>

@@ -3,45 +3,69 @@
 <head>
     <meta charset="utf-8">
     <title>Historique des réalisations</title>
-    <!-- Ajoutez ici vos métadonnées et styles -->
+    <!-- Liens vers vos fichiers CSS -->
     <link href="_frame/stylee.css" rel="stylesheet">
     <link rel="stylesheet" href="_frame/profil.css">
     <style>
         /* Votre CSS personnalisé ici */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: #f8f9fa; /* Couleur de fond général */
+            color: #333; /* Couleur de texte principale */
+            margin: 0;
+            padding: 0;
         }
 
         .container {
             width: 95%;
             margin: 20px auto;
+            background-color: #fff; /* Fond du contenu */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: black;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
         }
 
-        th,
-        td {
+        th, td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
         }
 
         th {
-            background-color: black;
-            color: white;
+            background-color: #343a40; /* Couleur de fond des entêtes de colonnes */
+            color: white; /* Couleur de texte des entêtes de colonnes */
         }
 
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f2f2f2; /* Couleur de fond des lignes paires */
         }
 
         tr:hover {
-            background-color: #ddd;
+            background-color: #ddd; /* Couleur de fond au survol des lignes */
+        }
+
+        nav a {
+            color: #333; /* Couleur des liens dans la barre de navigation */
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px;
+        }
+
+        nav a:hover {
+            background-color: #007bff; /* Couleur de fond au survol des liens */
+            color: white; /* Couleur de texte au survol des liens */
         }
     </style>
 </head>
