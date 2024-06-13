@@ -53,7 +53,7 @@
     <a href="ajout_admin.php">Ajout admin</a>
     <a href="materiel.php">Matériaux</a>
     <a href="fournisseur.php">Fournisseur</a>
-    <a href="Recherche.php">Historique</a>
+    <a href="historique.php">Historique</a>
     <a href="index.php" id="logoutButton">Se Deconnecter</a>
 </nav>
 
@@ -61,7 +61,7 @@
   </header>
   <section class="section-below-header">
       
-     <img src="_media/img/large/pod-laura-the-unscheduled-conversations-and-chance-encounters-t-075efc97-10ca-4092-8fa6-d4bbee70b5c3.png" alt="Image dynamique" id="dynamic-image">
+     <img src="_media/img/large/Design sans titre.png" alt="Image dynamique" id="dynamic-image"  style="width:100%;">
      <div class="div3">
       <div>
         <p class="section-title">Chaud ou froid, C'est notre spécialité </p>

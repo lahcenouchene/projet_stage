@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Récapitulatif des commandes</title>
+    <title>Historique des réalisations</title>
     <!-- Ajoutez ici vos métadonnées et styles -->
     <link href="_frame/stylee.css" rel="stylesheet">
     <link rel="stylesheet" href="_frame/profil.css">
@@ -59,62 +59,48 @@
                         <a href="ajout_admin.php">Ajout admin</a>
                         <a href="materiel.php">Matériaux</a>
                         <a href="fournisseur.php">Fournisseur</a>
-                        <a href="historique.php">Historique</a>
+                        <a href="Recherche.php">Historique</a>
                         <a href="profil.php" id="retourButton">Retour</a>
                     </nav>
                 </div>
             </header>
             <div class="container">
-                <h1>Récapitulatif des commandes</h1>
+                <h1>Historique des réalisations</h1>
                 <table>
                     <thead>
                         <tr>
-                            <th>id_commande</th>
+                            <th>ID Historique</th>
+                            <th>ID Commande</th>
+                            <th>Date Réalisation</th>
+                            <th>Détails</th>
                             <th>Nom Complet</th>
                             <th>Objet</th>
                             <th>Email</th>
                             <th>Message</th>
                             <th>Téléphone</th>
-                            <th>Date</th>
                             <th>Autres Détails</th>
                             <th>Adresse</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         require('connexion.php');
-                        if (isset($_POST['marquer_realisee'])) {
-                            $id_commande = $_POST['id_commande'];
-                            $date_realisation = date('Y-m-d H:i:s');
-                            $details = "Commande réalisée avec succès."; // Vous pouvez personnaliser ce message
-                            
-                            // Insérer dans la table `historique`
-                            $insertHistorique = $stage->prepare("INSERT INTO historique (id_commande, date_realisation, details) VALUES (:id_commande, :date_realisation, :details)");
-                            $insertHistorique->bindParam(':id_commande', $id_commande);
-                            $insertHistorique->bindParam(':date_realisation', $date_realisation);
-                            $insertHistorique->bindParam(':details', $details);
-                            $insertHistorique->execute();
-                        }
-
-                        $stmt = $stage->query("SELECT * FROM commande");
+                        $stmt = $stage->query("SELECT h.id_historique, h.id_commande, h.date_realisation, h.details, c.nom_complet, c.objet, c.email, c.message, c.tel, c.autre_details, c.adresse 
+                                               FROM historique h 
+                                               JOIN commande c ON h.id_commande = c.id_commande");
                         while ($row = $stmt->fetch()) {
                             echo "<tr>";
+                            echo "<td>" . $row['id_historique'] . "</td>";
                             echo "<td>" . $row['id_commande'] . "</td>";
+                            echo "<td>" . $row['date_realisation'] . "</td>";
+                            echo "<td>" . $row['details'] . "</td>";
                             echo "<td>" . $row['nom_complet'] . "</td>";
                             echo "<td>" . $row['objet'] . "</td>";
                             echo "<td>" . $row['email'] . "</td>";
                             echo "<td>" . $row['message'] . "</td>";
                             echo "<td>" . $row['tel'] . "</td>";
-                            echo "<td>" . $row['date'] . "</td>";
                             echo "<td>" . $row['autre_details'] . "</td>";
                             echo "<td>" . $row['adresse'] . "</td>";
-                            echo "<td>
-                                <form method='post'>
-                                    <input type='hidden' name='id_commande' value='" . $row['id_commande'] . "'>
-                                    <button type='submit' name='marquer_realisee'>Marquer comme réalisée</button>
-                                </form>
-                            </td>";
                             echo "</tr>";
                         }
                         ?>
