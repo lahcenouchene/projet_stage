@@ -69,7 +69,7 @@ if (isset($_POST['valider'])) {
 </head>
 <body>
     <div class="container">
-        <h2>Ajouter un fournisseur</h2>
+        <h2><i class="fas fa-user-plus icon"></i> Ajouter un fournisseur</h2>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <div class="form-group">
                 <label for="nom">Nom:</label>

@@ -113,7 +113,7 @@ if (isset($_POST['marquer_realisee'])) {
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead class="thead-dark">
-                            <tr>
+                            <tr style="background-color: #007bff; ">
                                 <th>ID Commande</th>
                                 <th>Nom Complet</th>
                                 <th>Objet</th>
@@ -154,8 +154,8 @@ if (isset($_POST['marquer_realisee'])) {
                     </table>
                 </div>
             </div>
-            <footer>
-                <div class="container">
+            <footer style="background-color: #343a40;">
+                <div class="container" >
                     <div class="row">
                         <div class="col-md-3">
                             <img src="_media/img/small/3.png" srcset="_media/img/thumb/3.png 160w,_media/img/small/3.png 480w,_media/img/medium/3.png 768w,_media/img/large/3.png 1024w,_media/img/xlarge/3.png 1280w" style="max-width: 100%; width: 320px" alt="" loading="lazy" />

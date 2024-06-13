@@ -18,8 +18,8 @@ $materiaux = $query->fetchAll(PDO::FETCH_ASSOC);
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa; /* Couleur de fond */
-            color: #333; /* Couleur du texte */
+            background-color: #f0f8ff;
+            color: #333;
             margin: 0;
             padding: 0;
             display: flex;
@@ -29,12 +29,19 @@ $materiaux = $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
         .container {
-            width: 80%;
-            background-color: #fff; /* Couleur de fond du container */
+            width: 90%;
+            background-color: #fff;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             overflow-x: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #007bff;
+            font-weight: bold;
         }
 
         table {
@@ -50,22 +57,22 @@ $materiaux = $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
         th {
-            background-color: #343a40; /* Couleur de fond des cellules d'en-tête */
-            color: white; /* Couleur du texte des cellules d'en-tête */
+            background-color: #343a40;
+            color: white;
         }
 
         .btn-back {
             display: inline-block;
             padding: 12px 24px;
-            background-color: #007bff; /* Couleur de fond du bouton */
-            color: #fff; /* Couleur du texte du bouton */
+            background-color: #007bff;
+            color: #fff;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
 
         .btn-back:hover {
-            background-color: #0056b3; /* Couleur de fond du bouton au survol */
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -99,7 +106,7 @@ $materiaux = $query->fetchAll(PDO::FETCH_ASSOC);
             </table>
         </div>
         <div class="text-center">
-            <a href="materiel.php" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Retour</a>
+            <a href="materiel.php" class="btn btn-back"><i class="fas fa-arrow-left"></i> Retour</a>
         </div>
     </div>
 
